@@ -6,7 +6,7 @@ import { ArrowUpRight } from 'lucide-react';
 // Falls back gracefully if folder is empty or path differs
 const globImages = import.meta.glob(
   '../assets/mediacenter/*.{jpg,jpeg,png,webp,gif,svg}',
-  { eager: true, as: 'url' }
+  { eager: true, query: '?url', import: 'default' }
 );
 
 const localImages = Object.values(globImages);

@@ -10,7 +10,7 @@ const logos = [
   'teleperformance.png','tepe-savunma-1.png','Vodafone-Logo-675x380-2.png',
 ];
 
-const logoModules = import.meta.glob('../../assets/ticker-logos/*', { eager: true, as: 'url' });
+const logoModules = import.meta.glob('../../assets/ticker-logos/*', { eager: true, query: '?url', import: 'default' });
 
 function getLogoUrl(filename) {
   const url = logoModules[`../../assets/ticker-logos/${filename}`];

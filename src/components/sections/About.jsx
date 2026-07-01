@@ -53,7 +53,7 @@ export default function About() {
             {/* Görsel */}
             <div className="relative mt-0 lg:-mt-40">
               <img
-                src="assets/YDA-Center-05.jpg"
+                src="/assets/YDA-Center-05.jpg"
                 alt="Kolaysoft"
                 className="w-full h-[320px] lg:h-[420px] object-cover"
               />
