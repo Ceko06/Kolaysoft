@@ -50,7 +50,7 @@ const row1 = [
     avatarBg: '#7b2d8b',
     tags: ['EczacıPOS', 'Sağlık'],
     thumbnail: '/basari-hikayeleri-thumbnail/kolaycare.webp',
-    videoUrl: 'https://youtu.be/cDbpvZT6Alc',
+    videoUrl: 'https://www.youtube.com/embed/cDbpvZT6Alc',
   },
 ];
 
@@ -225,7 +225,10 @@ function TestimonialCard({ testimonial, onPlay }) {
             <p className="font-semibold text-koc-dark text-sm">{testimonial.name}</p>
             <p className="text-xs text-slate-400 mt-0.5">{testimonial.title}</p>
           </div>
-          <button className="flex items-center gap-2 text-xs font-semibold text-koc-navy border border-slate-200 rounded-full px-4 py-2 hover:border-koc-navy transition-colors flex-shrink-0">
+          <button
+            onClick={() => onPlay(testimonial)}
+            className="flex items-center gap-2 text-xs font-semibold text-koc-navy border border-slate-200 rounded-full px-4 py-2 hover:border-koc-navy transition-colors flex-shrink-0"
+          >
             <Play className="w-3 h-3 fill-koc-navy" />
             Hikâyeyi Gör
           </button>
@@ -327,7 +330,7 @@ export default function Testimonials({ filterTag = null }) {
 
   function handlePlay(testimonial) {
     if (testimonial.isInstagram) {
-      window.open(testimonial.originalUrl, '_blank', 'noopener,noreferrer');
+      window.open(testimonial.originalUrl || testimonial.videoUrl, '_blank', 'noopener,noreferrer');
     } else {
       setActiveVideo(testimonial);
     }
