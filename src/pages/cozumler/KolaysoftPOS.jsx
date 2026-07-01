@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronRight, CreditCard, FileText, CheckSquare, LayoutGrid, ShieldCheck, ShoppingBag, Plus, Stethoscope, Briefcase, Play, X } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowRight, ChevronRight, CreditCard, FileText, CheckSquare, LayoutGrid, ShieldCheck, ShoppingBag, Plus, Stethoscope, Briefcase } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Testimonials from '../../components/sections/Testimonials';
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -11,11 +11,7 @@ const fadeUp = {
   }),
 };
 
-const VIDEO_SRC = '/assets/kolaysoftpos/basari-hikayesi.mp4';
-
 export default function KolaysoftPOS() {
-  const [videoOpen, setVideoOpen] = useState(false);
-
   return (
     <div className="bg-white">
 
@@ -400,98 +396,9 @@ export default function KolaysoftPOS() {
       </section>
 
       {/* ══════════════════════════════════════════
-          BAŞARI HİKAYELERİMİZ
+          BAŞARI HİKAYELERİMİZ — yalnızca EczacıPOS (POS) hikayeleri
       ══════════════════════════════════════════ */}
-      <section className="py-20 bg-white">
-        <div className="container-wide">
-
-          {/* Başlık */}
-          <motion.div
-            variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-            className="mb-10 text-center"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-white shadow-sm mb-5">
-              <span className="w-2 h-2 rounded-full bg-[#0CF25D]" />
-              <span className="text-xs font-semibold text-slate-600 tracking-wide">Müşteri Deneyimleri</span>
-            </div>
-            <h2 className="font-extrabold text-slate-900" style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}>
-              Başarı Hikayelerimiz
-            </h2>
-          </motion.div>
-
-          {/* Video Thumbnail */}
-          <motion.div
-            variants={fadeUp} initial="hidden" whileInView="visible" custom={0.1} viewport={{ once: true }}
-            className="relative mx-auto overflow-hidden rounded-2xl cursor-pointer group shadow-xl"
-            style={{ maxWidth: '820px', aspectRatio: '16/9', backgroundColor: '#0B1A3B' }}
-            onClick={() => setVideoOpen(true)}
-          >
-            {/* Thumbnail — videonun ilk karesi */}
-            <video
-              src={VIDEO_SRC}
-              className="w-full h-full object-cover"
-              preload="metadata"
-              muted
-              playsInline
-            />
-
-            {/* Karartma overlay */}
-            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-all duration-300" />
-
-            {/* Play butonu */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div
-                className="w-20 h-20 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110 shadow-2xl"
-                style={{ backgroundColor: '#184A97' }}
-              >
-                <Play className="w-8 h-8 text-white ml-1" fill="white" />
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
-      </section>
-
-      {/* Video Modal */}
-      <AnimatePresence>
-        {videoOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4"
-            style={{ backgroundColor: 'rgba(0,0,0,0.85)' }}
-            onClick={() => setVideoOpen(false)}
-          >
-            <motion.div
-              initial={{ scale: 0.92, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.92, opacity: 0 }}
-              transition={{ duration: 0.25 }}
-              className="relative w-full rounded-2xl overflow-hidden shadow-2xl"
-              style={{ maxWidth: '900px', aspectRatio: '16/9', backgroundColor: '#000' }}
-              onClick={e => e.stopPropagation()}
-            >
-              <video
-                src={VIDEO_SRC}
-                className="w-full h-full object-cover"
-                controls
-                autoPlay
-              />
-              {/* Kapat butonu */}
-              <button
-                onClick={() => setVideoOpen(false)}
-                className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center transition-colors"
-                style={{ backgroundColor: 'rgba(0,0,0,0.6)' }}
-                onMouseEnter={e => (e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.9)')}
-                onMouseLeave={e => (e.currentTarget.style.backgroundColor = 'rgba(0,0,0,0.6)')}
-              >
-                <X className="w-5 h-5 text-white" />
-              </button>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <Testimonials filterTag={['EczacıPOS', 'OptikPOS']} />
 
       {/* ══════════════════════════════════════════
           CTA — HER İŞLETMENİN İŞLEYİŞİ FARKLIDIR

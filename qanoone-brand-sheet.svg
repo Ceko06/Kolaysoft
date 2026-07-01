@@ -1,0 +1,130 @@
+<svg width="1240" height="1680" viewBox="0 0 1240 1680" xmlns="http://www.w3.org/2000/svg" font-family="Poppins, Montserrat, 'Segoe UI', Arial, sans-serif">
+  <defs>
+    <linearGradient id="seal" x1="30" y1="20" x2="170" y2="185" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16324F"/><stop offset="1" stop-color="#0B2033"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="60" y1="55" x2="145" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CFF0EE"/>
+    </linearGradient>
+    <linearGradient id="ringTeal" x1="60" y1="55" x2="145" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A9396"/><stop offset="1" stop-color="#005F73"/>
+    </linearGradient>
+
+    <!-- Full master mark (200x200) -->
+    <g id="mark">
+      <path d="M181.3,133.7 L133.7,181.3 L66.3,181.3 L18.7,133.7 L18.7,66.3 L66.3,18.7 L133.7,18.7 L181.3,66.3 Z"
+            fill="url(#seal)" stroke="#16324F" stroke-width="6" stroke-linejoin="round"/>
+      <path d="M168.4,128.3 L128.3,168.4 L71.7,168.4 L31.6,128.3 L31.6,71.7 L71.7,31.6 L128.3,31.6 L168.4,71.7 Z"
+            fill="none" stroke="#0A9396" stroke-width="1.6" stroke-linejoin="round" opacity="0.55"/>
+      <circle cx="100" cy="96" r="42" fill="none" stroke="url(#ring)" stroke-width="20"/>
+      <line x1="118" y1="114" x2="143" y2="139" stroke="url(#ring)" stroke-width="20" stroke-linecap="round"/>
+      <circle cx="147" cy="143" r="10.5" fill="#66023C"/>
+      <circle cx="147" cy="143" r="4" fill="#F8FAFC"/>
+    </g>
+
+    <!-- Simplified mark (frame + Q, no engraving/node core) for small sizes -->
+    <g id="markSimple">
+      <path d="M181.3,133.7 L133.7,181.3 L66.3,181.3 L18.7,133.7 L18.7,66.3 L66.3,18.7 L133.7,18.7 L181.3,66.3 Z"
+            fill="#16324F"/>
+      <circle cx="100" cy="96" r="42" fill="none" stroke="#FFFFFF" stroke-width="21"/>
+      <line x1="118" y1="114" x2="143" y2="139" stroke="#FFFFFF" stroke-width="21" stroke-linecap="round"/>
+    </g>
+
+    <!-- Q only, for 16px favicon -->
+    <g id="qOnly">
+      <rect x="6" y="6" width="188" height="188" rx="40" fill="#16324F"/>
+      <circle cx="100" cy="96" r="46" fill="none" stroke="#FFFFFF" stroke-width="26"/>
+      <line x1="120" y1="116" x2="150" y2="146" stroke="#FFFFFF" stroke-width="26" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <!-- Page background -->
+  <rect width="1240" height="1680" fill="#F8FAFC"/>
+
+  <!-- Header -->
+  <text x="80" y="90" font-size="42" font-weight="700" fill="#16324F" letter-spacing="1">Qanoone — Marka Kimliği</text>
+  <text x="80" y="126" font-size="20" font-weight="500" fill="#0A9396" letter-spacing="3">SEÇENEK A · Q + SEKİZGEN MÜHÜR · TURKISH PREMIUM LEGALTECH</text>
+  <line x1="80" y1="150" x2="1160" y2="150" stroke="#16324F" stroke-width="2" opacity="0.15"/>
+
+  <!-- 1. Primary logo on light -->
+  <text x="80" y="205" font-size="17" font-weight="600" fill="#16324F" letter-spacing="2" opacity="0.6">01 · ANA LOGO (YATAY)</text>
+  <g transform="translate(80,225)">
+    <rect x="0" y="0" width="1080" height="230" rx="16" fill="#FFFFFF" stroke="#16324F" stroke-opacity="0.08"/>
+    <g transform="translate(40,25) scale(0.9)"><use href="#mark"/></g>
+    <text x="235" y="128" font-size="76" font-weight="600" letter-spacing="2" fill="#16324F">Qanoone</text>
+    <text x="238" y="166" font-size="19.5" font-weight="500" letter-spacing="5.5" fill="#0A9396">LEGAL OPERATIONS PLATFORM</text>
+  </g>
+
+  <!-- 2. Mark on dark + symbol only -->
+  <text x="80" y="510" font-size="17" font-weight="600" fill="#16324F" letter-spacing="2" opacity="0.6">02 · KOYU ZEMİN &amp; SEMBOL</text>
+  <g transform="translate(80,530)">
+    <rect x="0" y="0" width="525" height="260" rx="16" fill="#16324F"/>
+    <g transform="translate(28,48) scale(0.8)"><use href="#mark"/></g>
+    <text x="208" y="132" font-size="52" font-weight="600" letter-spacing="1.5" fill="#FFFFFF">Qanoone</text>
+    <text x="210" y="164" font-size="13.5" font-weight="500" letter-spacing="3.2" fill="#7FD3D0">LEGAL OPERATIONS PLATFORM</text>
+  </g>
+  <g transform="translate(635,530)">
+    <rect x="0" y="0" width="525" height="260" rx="16" fill="#FFFFFF" stroke="#16324F" stroke-opacity="0.08"/>
+    <g transform="translate(180,30) scale(1.0)"><use href="#mark"/></g>
+    <text x="262" y="245" text-anchor="middle" font-size="15" font-weight="500" fill="#16324F" opacity="0.55">Bağımsız sembol (app ikonu / favicon / sosyal)</text>
+  </g>
+
+  <!-- 3. Color palette -->
+  <text x="80" y="845" font-size="17" font-weight="600" fill="#16324F" letter-spacing="2" opacity="0.6">03 · RENK PALETİ (TURKISH PREMIUM LEGALTECH)</text>
+  <g transform="translate(80,865)" font-size="0">
+    <!-- swatches -->
+    <g transform="translate(0,0)"><rect width="205" height="150" rx="12" fill="#005F73"/></g>
+    <g transform="translate(220,0)"><rect width="205" height="150" rx="12" fill="#0A9396"/></g>
+    <g transform="translate(440,0)"><rect width="205" height="150" rx="12" fill="#16324F"/></g>
+    <g transform="translate(660,0)"><rect width="205" height="150" rx="12" fill="#66023C"/></g>
+    <g transform="translate(880,0)"><rect width="205" height="150" rx="12" fill="#F8FAFC" stroke="#16324F" stroke-opacity="0.12"/></g>
+  </g>
+  <g font-size="15" fill="#16324F">
+    <text x="80"  y="1043" font-weight="600">Primary</text>   <text x="80"  y="1063" opacity="0.6">Deep Turquoise · #005F73</text>
+    <text x="300" y="1043" font-weight="600">Secondary</text> <text x="300" y="1063" opacity="0.6">Teal · #0A9396</text>
+    <text x="520" y="1043" font-weight="600">Dark</text>       <text x="520" y="1063" opacity="0.6">Deep Navy · #16324F</text>
+    <text x="740" y="1043" font-weight="600">Accent</text>     <text x="740" y="1063" opacity="0.6">Burgundy · #66023C</text>
+    <text x="960" y="1043" font-weight="600">Background</text> <text x="960" y="1063" opacity="0.6">Soft White · #F8FAFC</text>
+  </g>
+
+  <!-- 4. Scale tests / favicon -->
+  <text x="80" y="1130" font-size="17" font-weight="600" fill="#16324F" letter-spacing="2" opacity="0.6">04 · ÖLÇEK TESTLERİ</text>
+  <g transform="translate(80,1150)">
+    <rect x="0" y="0" width="1080" height="210" rx="16" fill="#FFFFFF" stroke="#16324F" stroke-opacity="0.08"/>
+    <!-- 512 (full) -->
+    <g transform="translate(45,35)"><g transform="scale(0.65)"><use href="#mark"/></g></g>
+    <text x="110" y="185" text-anchor="middle" font-size="13" fill="#16324F" opacity="0.6">512 · 192px</text>
+    <!-- 64 full -->
+    <g transform="translate(230,60)"><g transform="scale(0.42)"><use href="#mark"/></g></g>
+    <text x="272" y="185" text-anchor="middle" font-size="13" fill="#16324F" opacity="0.6">64px</text>
+    <!-- 32 simplified -->
+    <g transform="translate(400,75)"><g transform="scale(0.28)"><use href="#markSimple"/></g></g>
+    <text x="428" y="185" text-anchor="middle" font-size="13" fill="#16324F" opacity="0.6">32px (sade çerçeve)</text>
+    <!-- 16 Q only -->
+    <g transform="translate(600,88)"><g transform="scale(0.19)"><use href="#qOnly"/></g></g>
+    <text x="619" y="185" text-anchor="middle" font-size="13" fill="#16324F" opacity="0.6">16px (yalnız Q)</text>
+    <!-- actual pixel previews -->
+    <g transform="translate(760,70)">
+      <g transform="scale(0.32)"><use href="#markSimple"/></g>
+      <g transform="translate(0,70)"></g>
+    </g>
+    <text x="930" y="80" font-size="14" fill="#16324F" opacity="0.75" font-weight="600">Sembol tüm alt</text>
+    <text x="930" y="102" font-size="14" fill="#16324F" opacity="0.75" font-weight="600">ürünlerde sabit;</text>
+    <text x="930" y="124" font-size="14" fill="#16324F" opacity="0.75">yalnız wordmark eki</text>
+    <text x="930" y="146" font-size="14" fill="#16324F" opacity="0.75">değişir (AI · Docs · Tax).</text>
+  </g>
+
+  <!-- 5. Arabic lockup -->
+  <text x="80" y="1435" font-size="17" font-weight="600" fill="#16324F" letter-spacing="2" opacity="0.6">05 · ARAPÇA KİLİT (RTL)</text>
+  <g transform="translate(80,1455)">
+    <rect x="0" y="0" width="1080" height="180" rx="16" fill="#FFFFFF" stroke="#16324F" stroke-opacity="0.08"/>
+    <g transform="translate(830,15) scale(0.75)"><use href="#mark"/></g>
+    <text x="790" y="105" text-anchor="end" direction="rtl" font-family="'Noto Sans Arabic','Cairo',Tahoma,sans-serif" font-size="78" font-weight="700" fill="#16324F">قانوني</text>
+    <text x="790" y="140" text-anchor="end" direction="rtl" font-family="'Noto Sans Arabic','Cairo',Tahoma,sans-serif" font-size="19" font-weight="500" fill="#0A9396">منصة العمليات القانونية</text>
+    <text x="60" y="95" font-size="15" fill="#16324F" opacity="0.55">Arapça wordmark, tasarım sisteminin</text>
+    <text x="60" y="118" font-size="15" fill="#16324F" opacity="0.55">eşit bir parçası olarak kurgulanır.</text>
+  </g>
+
+  <!-- Footer note -->
+  <text x="80" y="1665" font-size="13" fill="#16324F" opacity="0.45">Not: Wordmark burada geometric sans (Poppins) ile temsil edilmiştir; final için wordmark'a özgü özel çizim önerilir.</text>
+</svg>

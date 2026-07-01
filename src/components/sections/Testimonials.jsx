@@ -116,6 +116,23 @@ const row2 = [
   },
 ];
 
+// KolaysoftPOS sayfası için ek POS hikayeleri (anasayfada gösterilmez).
+const optikStories = [
+  {
+    quote: 'Temassız ve QR ödeme seçenekleri ekledikten sonra kasadaki bekleme süresi neredeyse ortadan kalktı. Müşterilerimiz ödeme kolaylığından çok memnun.',
+    name: 'Yahya Aydın',
+    title: 'Başkan · Hatay Optisyen ve Gözlükçüler Odası',
+    companyName: 'Hatay Optisyen ve Gözlükçüler Odası',
+    initials: 'YA',
+    avatarBg: '#184A97',
+    tags: ['OptikPOS', 'Ödeme Çözümleri'],
+    thumbnail: '/assets/optik-teknolojileri/optik-magaza.jpg',
+    videoUrl: 'https://www.instagram.com/p/DRj2xtOCPah/embed/',
+    originalUrl: 'https://www.instagram.com/p/DRj2xtOCPah/',
+    isInstagram: true,
+  },
+];
+
 function VideoModal({ testimonial, onClose }) {
   return (
     <div
@@ -292,8 +309,21 @@ function TickerRow({ items, direction, onPlay }) {
   );
 }
 
-export default function Testimonials() {
+export default function Testimonials({ filterTag = null }) {
   const [activeVideo, setActiveVideo] = useState(null);
+
+  // filterTag verilirse (ör. KolaysoftPOS sayfası) yalnızca o ürüne ait
+  // hikayeler gösterilir; verilmezse anasayfadaki tam liste kullanılır.
+  const filterTags = filterTag
+    ? (Array.isArray(filterTag) ? filterTag : [filterTag])
+    : null;
+  const filtered = filterTags
+    ? [...row1, ...row2, ...optikStories].filter(t =>
+        t.tags.some(tag => filterTags.includes(tag))
+      )
+    : null;
+  const displayRow1 = filtered ? filtered.filter((_, i) => i % 2 === 0) : row1;
+  const displayRow2 = filtered ? filtered.filter((_, i) => i % 2 === 1) : row2;
 
   function handlePlay(testimonial) {
     if (testimonial.isInstagram) {
@@ -355,14 +385,17 @@ export default function Testimonials() {
 
         {/* 1. Satır — sola */}
         <div style={{ padding: '12px 0' }}>
-          <TickerRow items={row1} direction="forward" onPlay={handlePlay} />
+          <TickerRow items={displayRow1} direction="forward" onPlay={handlePlay} />
         </div>
 
         {/* 2. Satır — sağa (ters) */}
-        <div style={{ padding: '12px 0' }}>
-          <TickerRow items={row2} direction="reverse" onPlay={handlePlay} />
-        </div>
+        {displayRow2.length > 0 && (
+          <div style={{ padding: '12px 0' }}>
+            <TickerRow items={displayRow2} direction="reverse" onPlay={handlePlay} />
+          </div>
+        )}
       </div>
+
 
       <style>{`
         @keyframes ticker-scroll {

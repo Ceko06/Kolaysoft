@@ -1,0 +1,29 @@
+<svg width="720" height="240" viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Qanoone logo horizontal">
+  <defs>
+    <linearGradient id="seal" x1="30" y1="20" x2="170" y2="185" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#16324F"/><stop offset="1" stop-color="#0B2033"/>
+    </linearGradient>
+    <linearGradient id="ring" x1="60" y1="55" x2="145" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#CFF0EE"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Symbol -->
+  <g transform="translate(20,20) scale(1.0)">
+    <path d="M181.3,133.7 L133.7,181.3 L66.3,181.3 L18.7,133.7 L18.7,66.3 L66.3,18.7 L133.7,18.7 L181.3,66.3 Z"
+          fill="url(#seal)" stroke="#16324F" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M168.4,128.3 L128.3,168.4 L71.7,168.4 L31.6,128.3 L31.6,71.7 L71.7,31.6 L128.3,31.6 L168.4,71.7 Z"
+          fill="none" stroke="#0A9396" stroke-width="1.6" stroke-linejoin="round" opacity="0.55"/>
+    <circle cx="100" cy="96" r="42" fill="none" stroke="url(#ring)" stroke-width="20"/>
+    <line x1="118" y1="114" x2="143" y2="139" stroke="url(#ring)" stroke-width="20" stroke-linecap="round"/>
+    <circle cx="147" cy="143" r="10.5" fill="#66023C"/>
+    <circle cx="147" cy="143" r="4" fill="#F8FAFC"/>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="250" y="130" font-family="Montserrat, Poppins, 'Segoe UI', Arial, sans-serif"
+        font-size="76" font-weight="600" letter-spacing="2" fill="#16324F">Qanoone</text>
+  <!-- Tagline -->
+  <text x="252" y="168" font-family="Montserrat, 'Segoe UI', Arial, sans-serif"
+        font-size="19.5" font-weight="500" letter-spacing="5.5" fill="#0A9396">LEGAL OPERATIONS PLATFORM</text>
+</svg>
