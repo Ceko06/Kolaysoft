@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
+import ChatBot from './components/ChatBot';
 import './styles/index.css';
 import { NewsProvider } from './context/NewsContext';
 import Navbar from './components/layout/Navbar';
@@ -93,6 +94,7 @@ export default function App() {
             <Route path="/cozumler/kirmizi-kurumsal" element={<KirmiziKurumsal />} />
           </Routes>
         </div>
+        <ChatBot />
         <Footer />
       </BrowserRouter>
     </NewsProvider>

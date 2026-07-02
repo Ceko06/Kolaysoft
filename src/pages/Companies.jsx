@@ -100,7 +100,7 @@ export default function Companies() {
           <p className="text-slate-600">Dijital dönüşümün öncüsü olarak farklı sektörlerde hizmet veren şirketlerimiz</p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
           {companies.map((company, index) => {
             const Icon = company.icon;
             const c = colorMap[company.color];

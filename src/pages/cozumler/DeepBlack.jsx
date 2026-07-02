@@ -158,34 +158,34 @@ function AIDiagram() {
         {/* AI */}
         <text x="240" y="221" textAnchor="middle" fill="white" fontSize="30" fontWeight="800" fontFamily="Cabin, sans-serif">AI</text>
         {/* secure core */}
-        <text x="240" y="241" textAnchor="middle" fill="#22C55E" fontSize="10" fontWeight="500" fontFamily="DM Sans, sans-serif" letterSpacing="0.6">secure core</text>
+        <text x="240" y="241" textAnchor="middle" fill="#22C55E" fontSize="10" fontWeight="500" fontFamily="Cabin, sans-serif" letterSpacing="0.6">secure core</text>
 
         {/* ── SATELLITE PILLS ── */}
 
         {/* Integration — top */}
         <rect x="178" y="56" width="124" height="36" rx="18" fill="white" filter="url(#pill-shadow)" />
         <circle cx="200" cy="74" r="5.5" fill="#6366F1" />
-        <text x="255" y="79" textAnchor="middle" fill="#1E293B" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">Integration</text>
+        <text x="255" y="79" textAnchor="middle" fill="#1E293B" fontSize="13" fontWeight="600" fontFamily="Cabin, sans-serif">Integration</text>
 
         {/* NLP — left */}
         <rect x="50" y="139" width="84" height="36" rx="18" fill="white" filter="url(#pill-shadow)" />
         <circle cx="71" cy="157" r="5.5" fill="#3B82F6" />
-        <text x="116" y="162" textAnchor="middle" fill="#1E293B" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">NLP</text>
+        <text x="116" y="162" textAnchor="middle" fill="#1E293B" fontSize="13" fontWeight="600" fontFamily="Cabin, sans-serif">NLP</text>
 
         {/* LLM — right */}
         <rect x="346" y="139" width="82" height="36" rx="18" fill="white" filter="url(#pill-shadow)" />
         <circle cx="367" cy="157" r="5.5" fill="#3B82F6" />
-        <text x="408" y="162" textAnchor="middle" fill="#1E293B" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">LLM</text>
+        <text x="408" y="162" textAnchor="middle" fill="#1E293B" fontSize="13" fontWeight="600" fontFamily="Cabin, sans-serif">LLM</text>
 
         {/* Security — bottom left */}
         <rect x="44" y="302" width="106" height="36" rx="18" fill="white" filter="url(#pill-shadow)" />
         <circle cx="66" cy="320" r="5.5" fill="#22C55E" />
-        <text x="120" y="325" textAnchor="middle" fill="#1E293B" fontSize="13" fontWeight="600" fontFamily="DM Sans, sans-serif">Security</text>
+        <text x="120" y="325" textAnchor="middle" fill="#1E293B" fontSize="13" fontWeight="600" fontFamily="Cabin, sans-serif">Security</text>
 
         {/* AI Agents — bottom right */}
         <rect x="330" y="302" width="106" height="36" rx="18" fill="white" filter="url(#pill-shadow)" />
         <circle cx="351" cy="320" r="5.5" fill="#3B82F6" />
-        <text x="400" y="325" textAnchor="middle" fill="#1E293B" fontSize="12.5" fontWeight="600" fontFamily="DM Sans, sans-serif">AI Agents</text>
+        <text x="400" y="325" textAnchor="middle" fill="#1E293B" fontSize="12.5" fontWeight="600" fontFamily="Cabin, sans-serif">AI Agents</text>
       </svg>
     </div>
   );
@@ -291,7 +291,7 @@ export default function DeepBlack() {
                 fontSize: 'clamp(2.4rem, 4.5vw, 3.2rem)',
                 fontWeight: 800, lineHeight: 1.18, color: '#0D1117',
                 marginBottom: '1.4rem',
-                fontFamily: 'cabin, sans-serif',
+                fontFamily: 'Cabin, sans-serif',
               }}>
                 Yapay Zekâ ile<br />
                 İş Süreçlerini<br />
@@ -377,7 +377,7 @@ export default function DeepBlack() {
               fontSize: 'clamp(1.6rem, 3.5vw, 2.2rem)',
               fontWeight: 800, color: '#0D1117', lineHeight: 1.25,
               marginBottom: 20, maxWidth: 680, margin: '0 auto 20px',
-              fontFamily: 'cabin, sans-serif',
+              fontFamily: 'Cabin, sans-serif',
             }}>
               DeepBlack ile güvenli, ölçeklenebilir ve entegre yapay zekâ altyapısı
             </h2>
@@ -421,7 +421,7 @@ export default function DeepBlack() {
               fontSize: 'clamp(2rem, 4vw, 2.75rem)',
               fontWeight: 800, color: '#0D1117', lineHeight: 1.2,
               marginBottom: 36,
-              fontFamily: 'cabin, sans-serif',
+              fontFamily: 'Cabin, sans-serif',
             }}
           >
             Neden DeepBlack?
@@ -833,7 +833,7 @@ export default function DeepBlack() {
               fontSize: 'clamp(1.7rem, 3.5vw, 2.5rem)',
               fontWeight: 800, color: '#0D1117', lineHeight: 1.2,
               marginBottom: 12,
-              fontFamily: 'Space Grotesk, sans-serif',
+              fontFamily: 'Cabin, sans-serif',
             }}
           >
             Veriden Aksiyona Uzanan Yapay Zekâ Süreci
@@ -998,7 +998,7 @@ export default function DeepBlack() {
               fontSize: 'clamp(1.9rem, 4vw, 2.8rem)',
               fontWeight: 800, color: 'white', lineHeight: 1.2,
               marginBottom: 18, maxWidth: 1200,
-              fontFamily: 'Canin, sans-serif',
+              fontFamily: 'Cabin, sans-serif',
             }}
           >
             DeepBlack ile{' '}

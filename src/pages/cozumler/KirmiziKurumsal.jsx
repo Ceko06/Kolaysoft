@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { ChevronRight, ArrowRight, Smartphone, Users, Tag, ShoppingCart, BarChart3, Check } from 'lucide-react';
 
 const BASE = '/k%C4%B1rm%C4%B1z%C4%B1%20kurumsal%20g%C3%B6rsel/Hero%20Visual';
-const logoImg      = `${BASE}/K%C4%B1rm%C4%B1z%C4%B1%20Kurumsal.png`;
 const kirmiziLogo  = '/k%C4%B1rm%C4%B1z%C4%B1%20kurumsal%20g%C3%B6rsel/kirmizi-logo.png';
 const heroPhones   = `${BASE}/Higgsfield%20image.png`;
 const puanKazan    = `${BASE}/Puan%20Kazan.png`;
@@ -80,13 +79,23 @@ export default function KirmiziKurumsal() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center' }}>
 
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <img src={logoImg} alt="Kırmızı Kurumsal"
-                style={{
-                  width: '100%', maxWidth: 300, height: 'auto', display: 'block',
-                  objectFit: 'contain', marginBottom: 22,
-                  filter: 'drop-shadow(0 0 8px #0cf25d) drop-shadow(0 0 18px rgba(12,242,93,0.7))',
-                }}
-                onError={e => { e.target.style.display = 'none'; }} />
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', gap: 12,
+                background: '#ffffff', borderRadius: 16, padding: '14px 22px',
+                marginBottom: 22, border: '1px solid #EEF2F6',
+                boxShadow: '0 6px 20px rgba(12,242,93,0.18), 0 2px 6px rgba(0,0,0,0.05)',
+              }}>
+                <img src={kirmiziLogo} alt="Kırmızı Kurumsal"
+                  style={{ height: 48, width: 'auto', display: 'block', objectFit: 'contain' }}
+                  onError={e => { e.target.style.display = 'none'; }} />
+                <span style={{
+                  display: 'flex', flexDirection: 'column', lineHeight: 1.05,
+                  fontFamily: 'Cabin, sans-serif', fontWeight: 800, color: '#0D1117',
+                }}>
+                  <span style={{ fontSize: 20, letterSpacing: '0.01em' }}>KIRMIZI</span>
+                  <span style={{ fontSize: 20, letterSpacing: '0.01em' }}>KURUMSAL</span>
+                </span>
+              </div>
 
               <div style={{ marginBottom: 28 }}>
                 <span style={{

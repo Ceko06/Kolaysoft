@@ -4,9 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        display: ['DM Sans', 'sans-serif'],
-        body: ['DM Sans', 'sans-serif'],
+        display: ['Cabin', 'sans-serif'],
+        body: ['Cabin', 'sans-serif'],
         cabin: ['Cabin', 'sans-serif'],
+        sans: ['Cabin', 'sans-serif'],
       },
       colors: {
         koc: {

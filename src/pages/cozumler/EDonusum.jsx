@@ -350,7 +350,7 @@ function NetworkDiagram() {
             {/* Etiket */}
             <text x={lp.x} y={lp.y + 4}
               textAnchor={anchor(angle)}
-              fontSize="10" fontFamily="DM Sans, sans-serif" fontWeight="600"
+              fontSize="10" fontFamily="Cabin, sans-serif" fontWeight="600"
               fill="#64748B">
               {label}
             </text>

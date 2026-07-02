@@ -281,21 +281,37 @@ const href = activeMenu === 'Kurumsal'
           </AnimatePresence>
         </nav>
 
-        <div className="hidden lg:flex items-center gap-4">
-          
-        </div>
+        <div className="flex items-center gap-2 sm:gap-4">
+          <button
+            onClick={() => window.dispatchEvent(new Event('open-koala'))}
+            aria-label="Koala.ai sohbeti aç"
+            className="flex items-center gap-2 rounded-full bg-white p-1 pr-3 shadow-md ring-1 ring-slate-200 transition-transform hover:scale-105"
+          >
+            <span className="block h-9 w-9 overflow-hidden rounded-full">
+              <video
+                src="/chat-bot.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="h-full w-full object-cover"
+              />
+            </span>
+            <span className="hidden sm:block text-sm font-bold text-[#0A1628]">Koala.ai</span>
+          </button>
 
-        <button
-          className={`lg:hidden p-2 rounded-lg transition-colors ${
-            scrolled || mobileOpen ? 'hover:bg-slate-100' : 'hover:bg-white/10'
-          }`}
-          onClick={() => setMobileOpen(!mobileOpen)}
-        >
-          {mobileOpen
-            ? <X className="w-6 h-6 text-slate-800" />
-            : <Menu className={`w-6 h-6 ${scrolled ? 'text-slate-800' : 'text-white'}`} />
-          }
-        </button>
+          <button
+            className={`lg:hidden p-2 rounded-lg transition-colors ${
+              scrolled || mobileOpen ? 'hover:bg-slate-100' : 'hover:bg-white/10'
+            }`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            {mobileOpen
+              ? <X className="w-6 h-6 text-slate-800" />
+              : <Menu className={`w-6 h-6 ${scrolled ? 'text-slate-800' : 'text-white'}`} />
+            }
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

@@ -12,7 +12,18 @@ const peykHeader     = '/assets/headers/cozumler-header.png';
 const glassFolderImg = '/assets/peyk/glass-folder.png';
 const globeImg       = '/assets/peyk/globe.png';
 const folderImg      = '/assets/peyk/folder.png';
+const folder2Img     = '/assets/peyk/folder2.png';
 const iaspLogo       = '/assets/awards/IASP.png';
+
+/* ── Hakkında floating belgeler ── */
+const aboutDocs = [
+  { src: '/assets/peyk/bordro.png',    alt: 'Bordro',     className: 'w-[115px] md:w-[134px] top-2 left-2',    delay: 0 },
+  { src: '/assets/peyk/sözleşme.png',  alt: 'Sözleşme',   className: 'w-[115px] md:w-[134px] top-0 right-2',   delay: 0.6 },
+  { src: '/assets/peyk/izinformu.png', alt: 'İzin Formu', className: 'w-[115px] md:w-[134px] top-1/3 right-0', delay: 1.1 },
+  { src: '/assets/peyk/özlük.png',     alt: 'Özlük',      className: 'w-[115px] md:w-[134px] top-1/2 left-0',  delay: 0.3 },
+  { src: '/assets/peyk/tebligat.png',  alt: 'Tebligat',   className: 'w-[115px] md:w-[134px] bottom-6 left-6', delay: 0.9 },
+  { src: '/assets/peyk/performans.png',alt: 'Performans', className: 'w-[115px] md:w-[134px] bottom-0 right-6',delay: 1.4 },
+];
 
 /* ── Animated counter ── */
 function Counter({ target, suffix = '+', prefix = '', duration = 2000 }) {
@@ -146,7 +157,7 @@ function PeykSuccessStories() {
   const next = () => { setCurrent((c) => (c + 1) % total); };
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-[#EEF2FF]">
       <div className="container-wide">
 
         {/* Üst başlık */}
@@ -345,7 +356,7 @@ export default function Peyk() {
       {/* ══════════════════════════════════════════
           SECTION 1 – Beyaz, sol metin + sağ görsel
       ══════════════════════════════════════════ */}
-      <section className="py-20 bg-white overflow-hidden">
+      <section className="pt-20 pb-0 bg-white overflow-hidden">
         <div className="container-wide grid md:grid-cols-2 gap-16 items-center">
           {/* Left – text */}
           <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
@@ -376,10 +387,10 @@ export default function Peyk() {
           <motion.div
             initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }} transition={{ duration: 0.65 }}
-            className="flex justify-center items-center"
+            className="flex justify-center items-end"
           >
             <img src={glassFolderImg} alt="PEYK Dijital Bildirim"
-              className="w-full max-w-sm drop-shadow-2xl" />
+              className="w-full max-w-lg drop-shadow-2xl" />
           </motion.div>
         </div>
       </section>
@@ -416,7 +427,7 @@ export default function Peyk() {
               <motion.div key={label} variants={fadeUp} initial="hidden" whileInView="visible" custom={i}
                 viewport={{ once: true }}
                 className="text-center py-8 px-4 rounded-2xl bg-slate-50 border border-slate-100">
-                <div className="text-4xl md:text-5xl font-extrabold text-[#184A97] mb-2">
+                <div className={`${typeof display === 'string' && display.length > 6 ? 'text-2xl md:text-3xl' : 'text-4xl md:text-5xl'} font-extrabold text-[#184A97] mb-2`}>
                   {display ?? <Counter target={value} suffix={suffix} />}
                 </div>
                 <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide">{label}</p>
@@ -448,10 +459,32 @@ export default function Peyk() {
 
           <motion.div initial={{ opacity: 0, x: 32 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             transition={{ duration: 0.6 }} className="relative">
-            <div className="rounded-3xl overflow-hidden  ">
-              <img src={folderImg} alt="PEYK Platform" className="w-full object-contain" />
+            {/* Klasör görseli */}
+            <div className="relative mx-auto max-w-md">
+              <img src={folder2Img} alt="PEYK Platform" className="w-full object-contain drop-shadow-2xl" />
+
+              {/* Floating belgeler */}
+              {aboutDocs.map((doc) => (
+                <motion.div
+                  key={doc.alt}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: doc.delay * 0.3 }}
+                  className={`absolute ${doc.className}`}
+                >
+                  <motion.img
+                    src={doc.src}
+                    alt={doc.alt}
+                    className="w-full drop-shadow-xl"
+                    animate={{ y: [0, -12, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: doc.delay }}
+                  />
+                </motion.div>
+              ))}
             </div>
-            <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3 border border-slate-100">
+
+            <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl px-5 py-3 flex items-center gap-3 border border-slate-100 z-10">
               <div className="w-10 h-10 bg-[#0CF25D] rounded-xl flex items-center justify-center flex-shrink-0">
                 <CheckCircle className="w-5 h-5 text-white" />
               </div>
