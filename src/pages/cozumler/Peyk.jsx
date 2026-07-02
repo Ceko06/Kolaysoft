@@ -417,9 +417,9 @@ export default function Peyk() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 ">
             {[
-              { value: 300,  suffix: '+',  label: 'Kurumsal Müşteri' },
+              { value: 300,  suffix: '+',  label: 'Kurumsal Müşteri',  fontfamily:'cabin'},
               { display: 'Milyonlarca',    label: 'Dijital Bildirim' },
               { value: 100,  suffix: '%',  label: 'Dijital Güvenilirlik' },
               { display: '7/24',           label: 'Erişilebilir Altyapı' },
@@ -427,10 +427,10 @@ export default function Peyk() {
               <motion.div key={label} variants={fadeUp} initial="hidden" whileInView="visible" custom={i}
                 viewport={{ once: true }}
                 className="text-center py-8 px-4 rounded-2xl bg-slate-50 border border-slate-100">
-                <div className={`${typeof display === 'string' && display.length > 6 ? 'text-2xl md:text-3xl' : 'text-4xl md:text-5xl'} font-extrabold text-[#184A97] mb-2`}>
+                <div className={`${typeof display === 'string' && display.length > 6 ? 'text-3xl md:text-4xl' : 'text-5xl md:text-6xl'} font-extrabold text-[#184A97] mb-2 h-14 md:h-16 flex items-center justify-center`}>
                   {display ?? <Counter target={value} suffix={suffix} />}
                 </div>
-                <p className="text-slate-500 text-xs font-semibold uppercase tracking-wide">{label}</p>
+                <p className="font-cabin text-slate-700 text-base md:text-lg font-semibold tracking-wide">{label}</p>
               </motion.div>
             ))}
           </div>
