@@ -107,6 +107,11 @@ export default function Navbar() {
     setHoveredItem(null);
   }, [location.pathname]);
 
+  // Mega menü değişince/kapanınca açık iç alt menüyü sıfırla
+  useEffect(() => {
+    setHoveredItem(null);
+  }, [activeMenu]);
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', onScroll);
@@ -278,27 +283,45 @@ export default function Navbar() {
                            ? `/kurumsal/${label === 'Biz Kimiz' ? 'biz-kimiz' : label === 'Hikayemiz' ? 'hikayemiz' : label === 'Vizyon & Misyon' ? 'vizyon-misyon' : label === 'Değerlerimiz' ? 'degerlerimiz' : label === 'Faaliyetler' ? 'faaliyetler' : label === 'Başarılarımız' ? 'basarilarimiz' : label === 'KVKK' ? 'kvkk' : 'teknoloji'}`
                            : label === 'Şirketler' ? '/sirketler' : label === 'İş Ortaklarımız' ? '/is-ortaklarimiz' : label === 'Çalışma Hayatı' ? '/kariyer' : label === 'Ekibimize Katılın' ? '/kolaysoft-kariyer' : label === 'Peyk' ? '/cozumler/peyk' : label === 'e-Dönüşüm' ? '/cozumler/e-donusum' : label === 'KolayCare' ? '/cozumler/kolay-care' : label === 'KolaysoftPOS' ? '/cozumler/kolaysoft-pos' : label === 'Eczane Teknolojileri' ? '/cozumler/eczane-teknolojileri' : label === 'Optik Teknolojileri' ? '/cozumler/optik-teknolojileri' : label === 'DeepBlack' ? '/cozumler/deepblack' : label === 'Kırmızı Kurumsal' ? '/cozumler/kirmizi-kurumsal' : '#';
                         const childHref = resolveChildHref;
+                        const itemInner = (
+                          <>
+                            <div className="w-8 h-8 rounded-lg bg-tech-card flex items-center justify-center flex-shrink-0 group-hover:bg-tech-cyan/20 transition-colors mt-0.5 border border-tech-border">
+                              <Icon className="w-4 h-4 text-slate-400 group-hover:text-tech-cyan transition-colors" />
+                            </div>
+                            <div className="flex-1">
+                              <p className="text-sm font-semibold text-slate-800 group-hover:text-tech-cyan transition-colors flex items-center gap-1">
+                                {label}
+                                {children && (
+                                  <ChevronDown
+                                    className={`w-3.5 h-3.5 text-tech-cyan transition-transform duration-200 ${hoveredItem === label ? 'rotate-180' : ''}`}
+                                  />
+                                )}
+                              </p>
+                              <p className="text-xs text-slate-500 mt-0.5">{desc}</p>
+                            </div>
+                          </>
+                        );
                         return (
                           <div
                             key={label}
                             className="flex flex-col"
-                            onMouseEnter={() => setHoveredItem(label)}
-                            onMouseLeave={() => setHoveredItem(null)}
                           >
-                          <Link
-                            to={href}
-                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 group transition-colors"
-                          >
-                            <div className="w-8 h-8 rounded-lg bg-tech-card flex items-center justify-center flex-shrink-0 group-hover:bg-tech-cyan/20 transition-colors mt-0.5 border border-tech-border">
-                              <Icon className="w-4 h-4 text-slate-400 group-hover:text-tech-cyan transition-colors" />
-                            </div>
-                            <div>
-                              <p className="text-sm font-semibold text-slate-800 group-hover:text-tech-cyan transition-colors">
-                                {label}
-                              </p>
-                              <p className="text-xs text-slate-500 mt-0.5">{desc}</p>
-                            </div>
-                          </Link>
+                          {children ? (
+                            <button
+                              type="button"
+                              onClick={() => setHoveredItem(hoveredItem === label ? null : label)}
+                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 group transition-colors text-left w-full"
+                            >
+                              {itemInner}
+                            </button>
+                          ) : (
+                            <Link
+                              to={href}
+                              className="flex items-start gap-3 p-3 rounded-lg hover:bg-slate-50 group transition-colors"
+                            >
+                              {itemInner}
+                            </Link>
+                          )}
                           <AnimatePresence initial={false}>
                           {children && hoveredItem === label && (
                             <motion.div

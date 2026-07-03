@@ -124,8 +124,17 @@ const allEDocs = [
         <path d="M16.5 18h3M18 16.5v3" strokeWidth="1.5"/>
       </svg>
     ),
-    title: 'İnteraktif e-Arşiv Fatura',
+    title: 'İnteraktif e-Arşiv Fatura(Faturam24)',
     desc: 'Faturalara özgü bir portal üzerinden görüntülenebilir, interaktif ve kolay paylaşımı sağlayan, müşteri memnuniyetini artırırken kağıt ve kargo maliyetlerini ortadan kaldırır.',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" stroke="#184A97" strokeWidth="1.5">
+        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 8h18M8 3v18M12 11h4M12 15h4"/>
+      </svg>
+    ),
+    title: 'e-Defter / e-Envanter',
+    desc: 'Yasal defterlerinizi elektronik ortamda oluşturun, onaylayın ve yönetin. GİB standartlarına tam uyum sağlayabilirsiniz.',
   },
   {
     icon: (
@@ -211,15 +220,6 @@ const allEDocs = [
     ),
     title: 'e-Sigorta Komisyon Gider Belgesi',
     desc: 'Sigorta acenteleri için yasal geçerliliği olan e-belge sistemimiz, acentelerin komisyon giderlerini elektronik ortamda belgeleyebilmesini sağlar.',
-  },
-  {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6" stroke="#184A97" strokeWidth="1.5">
-        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 8h18M8 3v18M12 11h4M12 15h4"/>
-      </svg>
-    ),
-    title: 'e-Defter',
-    desc: 'Yasal defterlerinizi elektronik ortamda oluşturun, onaylayın ve yönetin. GİB standartlarına tam uyum sağlayabilirsiniz.',
   },
   {
     icon: (
@@ -476,7 +476,7 @@ export default function EDonusum() {
               { target: 100,  suffix: '.000+',    label: 'Aktif Kullanıcı' },
               { target: 500,  suffix: ' Milyon+', label: 'İşlenen Elektronik Belge' },
               { target: 81,   suffix: ' İl',      label: 'Türkiye Genelinde Hizmet' },
-              { target: 4,    suffix: ' Yıl',     label: 'Bilişim 500 Birinciliği' },
+              { target: 300,    suffix: '+',     label: 'İş ve Çözüm Ortağı' },
             ].map(({ target, suffix, label }, i) => (
               <motion.div key={label} variants={fadeUp} initial="hidden" whileInView="visible" custom={i * 0.1}
                 viewport={{ once: true }}

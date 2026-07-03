@@ -12,7 +12,7 @@ const offices = [
     type: 'GENEL MERKEZ',
     name: 'Ankara YDA Center',
     address: 'YDA Center Kızılırmak Mahallesi Dumlupınar Bulvarı No:9/A567 Çankaya / Ankara',
-    phone: '+90 312 000 00 00',
+    phone: '+90 850 259 90 90',
     email: 'ydacenter@kolaysoft.com.tr',
     image: '/iletişim-görsel/ImageWithFallback (2).png',
     mapsUrl: 'https://maps.google.com/?q=YDA+Center+Ankara',
@@ -22,7 +22,7 @@ const offices = [
     type: 'AR-GE MERKEZİ',
     name: 'Ankara Bilkent Cyberpark',
     address: 'A.T.G.B Üniversiteler Mah. 1605.Cad. No:3 / 201-204 Cyberpark Vakıf Binası, 06800, Bilkent Çankaya / Ankara',
-    phone: '+90 312 000 00 00',
+    phone: '+90 850 259 90 90',
     email: 'bilkent@kolaysoft.com.tr',
     image: '/iletişim-görsel/ImageWithFallback (3).png',
     mapsUrl: 'https://maps.google.com/?q=Bilkent+Cyberpark+Ankara',
@@ -32,7 +32,7 @@ const offices = [
     type: 'OPERASYON MERKEZİ',
     name: 'Ankara Farılya Business Center',
     address: 'Kızılırmak Mah. Ufuk Üniversitesi Cad. Farilya Business Center No:8/2 Çankaya / Ankara',
-    phone: '+90 312 000 00 00',
+    phone: '+90 850 259 90 90',
     email: 'farliya@kolaysoft.com.tr',
     image: '/iletişim-görsel/ImageWithFallback (4).png',
     mapsUrl: 'https://maps.google.com/?q=Farilya+Business+Center+Ankara',
@@ -42,7 +42,7 @@ const offices = [
     type: 'BÖLGE OFİSİ',
     name: 'Malatya Ofisi',
     address: 'Bulgurlu Mahallesi Kanyon Caddesi Malatya Teknokent Binası Z/6 Battalgazi / Malatya',
-    phone: '+90 422 000 00 00',
+    phone: '+90 850 259 90 90',
     email: 'malatya@kolaysoft.com.tr',
     image: '/iletişim-görsel/ImageWithFallback (5).png',
     mapsUrl: 'https://maps.google.com/?q=Malatya+Teknokent',
@@ -97,6 +97,7 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!agreed) return;
     setSent(true);
   };
 
@@ -493,13 +494,21 @@ export default function ContactPage() {
                   <label className="flex items-start gap-2.5 cursor-pointer">
                     <input
                       type="checkbox"
+                      required
                       checked={agreed}
                       onChange={e => setAgreed(e.target.checked)}
                       className="mt-0.5 accent-[#1a6fa8]"
                     />
                     <span className="text-xs text-slate-500 leading-relaxed">
-                      <a href="#" className="text-[#1a6fa8] hover:underline">KVKK Aydınlatma Metni</a>'ni
-                      okudum ve kişisel verilerimin işlenmesine izin veriyorum.
+                      <Link
+                        to="/kurumsal/kvkk/iletisim-formu-aydinlatma-metni"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#1a6fa8] hover:underline"
+                      >
+                        İletişim Formu Aydınlatma Metni
+                      </Link>'ni
+                      okudum ve kişisel verilerimin işlenmesine izin veriyorum. <span className="text-red-500">*</span>
                     </span>
                   </label>
                   <button
@@ -534,7 +543,7 @@ export default function ContactPage() {
                   className="flex items-center gap-2.5 text-sm text-slate-700 hover:text-[#1a6fa8] transition-colors"
                 >
                   <Phone className="w-4 h-4 text-[#1a6fa8] shrink-0" />
-                  +90 312 000 00 00
+                  +90 850 259 90 90
                 </a>
                 <a
                   href="mailto:info@kolaysoft.com.tr"

@@ -8,6 +8,7 @@ import { ilanlar } from '../data/ilanlar';
 function BaşvuruFormu() {
   const [form, setForm] = useState({ ad: '', email: '', telefon: '', pozisyon: '', mesaj: '' });
   const [dosya, setDosya] = useState(null);
+  const [kvkk, setKvkk] = useState(false);
   const [durum, setDurum] = useState('idle'); // idle | gonderiyor | basarili | hata
   const [hata, setHata] = useState('');
   const fileRef = useState(null);
@@ -28,6 +29,7 @@ function BaşvuruFormu() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.ad || !form.email) { setHata('Ad ve e-posta zorunludur.'); return; }
+    if (!kvkk) { setHata('KVKK onayı zorunludur.'); return; }
     setDurum('gonderiyor');
     setHata('');
 
@@ -146,6 +148,25 @@ function BaşvuruFormu() {
           rows={2}
           className="text-sm border border-slate-200 rounded-xl px-3 py-2.5 outline-none focus:border-[#184A97] transition-colors resize-none"
         />
+
+        {/* KVKK */}
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input
+            type="checkbox" required checked={kvkk} onChange={(e) => setKvkk(e.target.checked)}
+            className="mt-0.5 accent-[#184A97]"
+          />
+          <span className="text-xs text-slate-500 leading-relaxed">
+            <Link
+              to="/kurumsal/kvkk/is-staj-basvurusu-aydinlatma-metni"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#184A97] font-semibold underline hover:text-[#0CF25D] transition-colors"
+            >
+              İş ve Staj Başvurusu Aydınlatma Metni
+            </Link>
+            'ni okudum; kişisel verilerimin başvuru süreci kapsamında işlenmesini kabul ediyorum. <span className="text-red-500">*</span>
+          </span>
+        </label>
 
         {hata && <p className="text-xs text-red-500">{hata}</p>}
 

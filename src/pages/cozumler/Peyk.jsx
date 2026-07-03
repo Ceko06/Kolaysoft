@@ -525,6 +525,7 @@ function PeykHikayesi() {
 
 export default function Peyk() {
   const [form, setForm] = useState({ firmaAdi: '', calisanSayisi: '', telefon: '', eposta: '', aciklama: '', alanlar: [] });
+  const [kvkk, setKvkk] = useState(false);
   const toggle = (a) => setForm(p => ({ ...p, alanlar: p.alanlar.includes(a) ? p.alanlar.filter(x => x !== a) : [...p.alanlar, a] }));
 
   return (
@@ -938,7 +939,7 @@ export default function Peyk() {
 
             {/* Sol – Form kartı */}
             <motion.form variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
-              onSubmit={e => e.preventDefault()}
+              onSubmit={e => { e.preventDefault(); if (!kvkk) return; }}
               className="bg-white rounded-3xl p-8 shadow-sm space-y-5">
 
               <div>
@@ -981,10 +982,17 @@ export default function Peyk() {
 
               {/* KVKK */}
               <label className="flex items-start gap-2.5 cursor-pointer">
-                <input type="checkbox"
+                <input type="checkbox" required checked={kvkk} onChange={e => setKvkk(e.target.checked)}
                   className="mt-0.5 w-4 h-4 rounded accent-[#184A97] flex-shrink-0" />
                 <span className="text-xs text-slate-500 leading-relaxed">
-                  <span className="text-[#184A97] font-semibold cursor-pointer hover:underline">KVKK Aydınlatma Metni</span>'ni okudum ve onaylıyorum.
+                  <Link
+                    to="/kurumsal/kvkk/iletisim-formu-aydinlatma-metni"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#184A97] font-semibold cursor-pointer hover:underline"
+                  >
+                    İletişim Formu Aydınlatma Metni
+                  </Link>'ni okudum ve onaylıyorum. <span className="text-red-500">*</span>
                 </span>
               </label>
 

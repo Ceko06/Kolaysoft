@@ -281,11 +281,19 @@ export default function GenelBasvuru() {
                 {/* KVKK */}
                 <label className="flex items-start gap-3 cursor-pointer">
                   <input
-                    type="checkbox" checked={kvkk} onChange={(e) => setKvkk(e.target.checked)}
+                    type="checkbox" required checked={kvkk} onChange={(e) => setKvkk(e.target.checked)}
                     className="mt-0.5 accent-[#184A97]"
                   />
                   <span className="text-xs text-slate-500 leading-relaxed">
-                    Kişisel verilerimin başvuru süreci kapsamında değerlendirilmesini kabul ediyorum.
+                    <Link
+                      to="/kurumsal/kvkk/is-staj-basvurusu-aydinlatma-metni"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#184A97] font-semibold underline hover:text-[#0CF25D] transition-colors"
+                    >
+                      İş ve Staj Başvurusu Aydınlatma Metni
+                    </Link>
+                    'ni okudum; kişisel verilerimin başvuru süreci kapsamında işlenmesini kabul ediyorum. <span className="text-red-500">*</span>
                   </span>
                 </label>
 
