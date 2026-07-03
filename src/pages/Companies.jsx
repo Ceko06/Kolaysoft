@@ -4,10 +4,10 @@ import { Building2, ChevronRight, Zap, Shield, Globe, FileText, BookOpen, Paperc
 
 const companies = [
   {
-    name: 'KolayCare',
+    name: 'DeepBlack',
     description: 'Eczane ve sağlık sektörü için dijital çözümler',
     icon: Pill,
-    logo: '/assets/our-companies/kolaycare-placeholder.svg',
+    logo: '/assets/deep-black/db-company-logo.png',
     color: 'cyan',
     tag: null
   },

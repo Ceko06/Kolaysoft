@@ -2,6 +2,11 @@ import { motion } from 'framer-motion';
 import { Play, X } from 'lucide-react';
 import { useState } from 'react';
 
+import etiBakirLogo from '../../assets/references/etibakirb.png';
+import mitasLogo from '../../assets/references/mitas-2.webp';
+import interpressLogo from '../../assets/references/interpress.webp';
+import ikeaLogo from '../../assets/references/ikea.webp';
+
 const row1 = [
   {
     quote: 'Zaten kolay bir uygulama. Zaman tasarrufu, kağıt israfı gibi konularda ve hukuki yönden bordroyla ilgili mütabakatı sağlamak adına PEYK programını kullanmalarını tavsiye ederim.',
@@ -12,6 +17,7 @@ const row1 = [
     avatarBg: '#b45309',
     tags: ['PEYK', 'İnsan Kaynakları'],
     thumbnail: '/basari-hikayeleri-thumbnail/peyk.jpg',
+    logo: etiBakirLogo,
     videoUrl: 'https://www.instagram.com/p/COF4bPgg0_5/embed/',
     originalUrl: 'https://www.instagram.com/p/COF4bPgg0_5/',
     isInstagram: true,
@@ -37,6 +43,7 @@ const row1 = [
     avatarBg: '#2d6a4f',
     tags: ['PEYK', 'İnsan Kaynakları'],
     thumbnail: '/basari-hikayeleri-thumbnail/peyk.jpg',
+    logo: mitasLogo,
     videoUrl: 'https://www.instagram.com/p/DHS-8D4I8eq/embed/',
     originalUrl: 'https://www.instagram.com/p/DHS-8D4I8eq/',
     isInstagram: true,
@@ -64,6 +71,7 @@ const row2 = [
     avatarBg: '#0f766e',
     tags: ['PEYK', 'Lojistik'],
     thumbnail: '/basari-hikayeleri-thumbnail/peyk.jpg',
+    logo: interpressLogo,
     videoUrl: 'https://www.instagram.com/p/CNZe1CSgf7H/embed/',
     originalUrl: 'https://www.instagram.com/p/CNZe1CSgf7H/',
     isInstagram: true,
@@ -77,6 +85,7 @@ const row2 = [
     avatarBg: '#0058a3',
     tags: ['PEYK', 'Perakende'],
     thumbnail: '/basari-hikayeleri-thumbnail/peyk.jpg',
+    logo: ikeaLogo,
     videoUrl: 'https://www.instagram.com/p/CN6ziQDA8vq/embed/',
     originalUrl: 'https://www.instagram.com/p/CN6ziQDA8vq/',
     isInstagram: true,
@@ -241,12 +250,25 @@ function TestimonialCard({ testimonial, onPlay }) {
         style={{ opacity: hovered ? 1 : 0, pointerEvents: hovered ? 'auto' : 'none' }}
       >
         <div className="relative" style={{ height: 'calc(100% - 64px)' }}>
-          <img
-            src={testimonial.thumbnail}
-            alt={testimonial.companyName}
-            className="w-full h-full object-cover"
+          {testimonial.logo ? (
+            <div className="w-full h-full flex items-center justify-center bg-white p-3">
+              <img
+                src={testimonial.logo}
+                alt={testimonial.companyName}
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+          ) : (
+            <img
+              src={testimonial.thumbnail}
+              alt={testimonial.companyName}
+              className="w-full h-full object-cover"
+            />
+          )}
+          <div
+            className="absolute inset-0"
+            style={{ background: testimonial.logo ? 'rgba(0,0,0,0.12)' : 'rgba(0,0,0,0.35)' }}
           />
-          <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.35)' }} />
           <button
             onClick={() => onPlay(testimonial)}
             className="absolute inset-0 flex items-center justify-center group"

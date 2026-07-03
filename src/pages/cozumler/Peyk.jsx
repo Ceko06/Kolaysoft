@@ -1,10 +1,11 @@
 import { useRef, useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
   ChevronRight, ChevronLeft, Bell, Users, FileText, Link2,
   CheckCircle, ArrowRight, Send, Award,
   Lock, Scale, Mail, BarChart2, LayoutGrid, Layers,
+  Scroll, Wind, MessageCircle, Upload, BellRing, Check,
 } from 'lucide-react';
 
 /* ── Assets ── */
@@ -14,6 +15,7 @@ const globeImg       = '/assets/peyk/globe.png';
 const folderImg      = '/assets/peyk/folder.png';
 const folder2Img     = '/assets/peyk/folder2.png';
 const iaspLogo       = '/assets/awards/IASP.png';
+const hikayeGorsel   = '/assets/peyk/hikaye-gorsel.png';
 
 /* ── Hakkında floating belgeler ── */
 const aboutDocs = [
@@ -315,6 +317,212 @@ const nedenCards = [
     desc: 'SAP, İKY ve ERP sistemleriyle hazır API entegrasyonu sunar.', wide: true },
 ];
 
+/* ── PEYK Hikayesi – Dünden Bugüne ── */
+const hikayeSteps = [
+  { icon: Scroll,        num: '01', title: 'Emri Alır',       desc: 'Padişahın emrini veya önemli haberi alır.',                    past: true },
+  { icon: Wind,          num: '02', title: 'Yola Düşer',      desc: 'Zamanla yarışarak güvenle ilerler.',                           past: true },
+  { icon: MessageCircle, num: '03', title: 'Haberi Ulaştırır', desc: 'Doğru kişiye, doğru bilgiyi teslim eder.',                    past: true },
+  { icon: Upload,        num: '04', title: 'Dijitale Taşır',   desc: 'Bilgiyi elektronik ortama güvenle aktarır.',                  past: false },
+  { icon: BellRing,      num: '05', title: 'Anında Ulaştırır', desc: 'Bildirimi, belgeyi ve süreci izlenebilir şekilde ulaştırır.', past: false },
+];
+
+function PeykHikayesi() {
+  const [aktifAdim, setAktifAdim] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAktifAdim((prev) => (prev + 1) % hikayeSteps.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <section className="py-20 bg-slate-50/60">
+      <div className="container-wide">
+        <div className="rounded-3xl bg-white shadow-md overflow-hidden">
+
+          {/* Üst – Hikaye */}
+          <div className="grid md:grid-cols-[42%_58%]">
+
+            {/* Sol – görsel panel */}
+            <div className="relative flex flex-col items-center justify-center gap-8 py-16 px-8 bg-gradient-to-br from-[#F0FDF4] via-[#EFF6FF] to-[#E0F2FE] border-b md:border-b-0 md:border-r border-slate-100">
+              <span className="inline-flex px-4 py-1.5 rounded-full bg-white border border-slate-200 text-slate-500 text-[11px] font-semibold uppercase tracking-[0.2em]">
+                Osmanlı'dan Dijitale Uzanan Güven
+              </span>
+
+              {/* Madalyon */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }} transition={{ duration: 0.6 }}
+                className="relative w-56 h-56 md:w-64 md:h-64 rounded-full flex items-center justify-center"
+                style={{ background: 'radial-gradient(circle, #FBF3E4 0%, #F3E7CF 100%)', boxShadow: '0 20px 50px -12px rgba(120,90,40,0.25)' }}
+              >
+                <div className="absolute inset-3 rounded-full border-2 border-dashed border-[#C9A96A]/50" />
+                <img src={hikayeGorsel} alt="Osmanlı Peyk çizimi"
+                  className="relative w-2/3 h-2/3 object-contain" />
+              </motion.div>
+            </div>
+
+            {/* Sağ – metin */}
+            <motion.div
+              variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}
+              className="py-14 px-8 md:px-14 flex flex-col justify-center"
+            >
+              <h2 className="text-3xl md:text-4xl font-extrabold leading-tight mb-6">
+                <span className="text-slate-900">Dün Haber Taşıyanlar,</span><br />
+                <span className="text-[#184A97]">Bugün Dijital Süreçleri Taşıyor.</span>
+              </h2>
+
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-4">
+                Yüzyıllar önce Osmanlı'da Peykler, padişahın en güvendiği habercilerdi.
+                En önemli görevleri; emirleri, bilgiyi ve haberleri doğru kişiye
+                en hızlı ve güvenli şekilde ulaştırmaktı.
+              </p>
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6">
+                Saatlerce durmadan koşar, zamanla yarışır, güvenilir haber taşımanın simgesi olurlardı.
+              </p>
+
+              <div className="rounded-2xl bg-slate-50 border border-slate-100 px-6 py-5 space-y-1.5 mb-6">
+                <p className="text-slate-700 text-sm">Bugün dünya değişti.</p>
+                <p className="text-slate-700 text-sm">Mesajlar dijitalleşti.</p>
+                <p className="text-slate-700 text-sm">Belgeler elektronik ortama taşındı.</p>
+              </div>
+
+              <p className="text-slate-700 text-sm mb-3">Ama değişmeyen tek şey var:</p>
+
+              <span className="inline-flex items-center gap-2 self-start px-5 py-2.5 rounded-full bg-[#0CF25D] text-[#0d1b4b] text-sm font-bold mb-5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#184A97]" />
+                Bilginin güvenli ve doğru şekilde ulaştırılması.
+              </span>
+
+              <p className="text-slate-900 font-extrabold text-base">
+                İşte bu yüzden adımız <span className="text-[#184A97]">PEYK.</span>
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Alt – Timeline */}
+          <div className="border-t border-slate-100 py-14 px-8 md:px-14">
+            <div className="text-center mb-12">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-slate-400 mb-2">
+                Tarihten Geleceğe
+              </p>
+              <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 mb-4">Dünden Bugüne PEYK</h3>
+              <span className="inline-flex px-4 py-1 rounded-full bg-[#E8FBEF] border border-[#0CF25D]/30 text-slate-600 text-xs font-medium">
+                Geçmişten Dijitale
+              </span>
+            </div>
+
+            {/* Aktif adım badge */}
+            <div className="flex justify-center mb-10">
+              <div className="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-[18px] py-[7px] shadow-sm text-[13px] font-semibold text-slate-700">
+                <span className="w-2 h-2 rounded-full inline-block"
+                  style={{ background: hikayeSteps[aktifAdim].past ? '#C9A96A' : '#3B82F6' }} />
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={aktifAdim}
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -6 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {aktifAdim + 1}/{hikayeSteps.length} — {hikayeSteps[aktifAdim].title}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
+            </div>
+
+            {/* Stepper */}
+            <div className="relative flex items-start justify-between mb-7">
+              {hikayeSteps.map(({ icon: Icon, num, title, desc, past }, i) => {
+                const tamamlandi = i < aktifAdim;
+                const aktif = i === aktifAdim;
+                const c = past
+                  ? { solid: '#C9A96A', soft: '#F6EBD6', text: '#8A6D3B', num: '#B08E55', ring: 'rgba(201,169,106,0.25)' }
+                  : { solid: '#3B82F6', soft: '#DBEAFE', text: '#2563EB', num: '#60A5FA', ring: 'rgba(59,130,246,0.22)' };
+
+                return (
+                  <div key={num} className="relative flex-1 flex flex-col items-center">
+                    {/* Bağlantı çizgisi */}
+                    {i < hikayeSteps.length - 1 && (
+                      <div className="absolute left-1/2 w-full h-0.5 z-0" style={{ top: 26, background: '#E2E8F0' }}>
+                        <motion.div
+                          className="h-full"
+                          style={{ background: past ? '#C9A96A' : '#3B82F6' }}
+                          animate={{ width: tamamlandi ? '100%' : '0%' }}
+                          transition={{ duration: 0.5 }}
+                        />
+                      </div>
+                    )}
+
+                    {/* Node */}
+                    <div className="relative z-10 mb-4">
+                      {aktif && (
+                        <span
+                          className="absolute inset-0 rounded-full"
+                          style={{ background: c.ring, animation: 'ping 1s cubic-bezier(0,0,0.2,1) infinite' }}
+                        />
+                      )}
+                      <motion.div
+                        animate={{
+                          backgroundColor: tamamlandi ? c.solid : aktif ? c.soft : '#F1F5F9',
+                          borderColor: (tamamlandi || aktif) ? c.solid : '#CBD5E1',
+                          scale: aktif ? 1.15 : 1,
+                        }}
+                        transition={{ duration: 0.4 }}
+                        className="w-[52px] h-[52px] rounded-full border-2 flex items-center justify-center"
+                        style={{ boxShadow: aktif ? `0 0 0 4px ${c.ring}, 0 4px 16px rgba(0,0,0,0.12)` : '0 2px 8px rgba(0,0,0,0.06)' }}
+                      >
+                        {tamamlandi
+                          ? <Check size={20} color="white" strokeWidth={3} />
+                          : <Icon className="w-5 h-5" style={{ color: aktif ? c.text : '#94A3B8' }} />
+                        }
+                      </motion.div>
+                    </div>
+
+                    {/* Metin */}
+                    <div className="text-center px-1">
+                      <p className="text-xs font-bold tracking-widest mb-1"
+                        style={{ color: (aktif || tamamlandi) ? c.num : '#CBD5E1' }}>
+                        {num}
+                      </p>
+                      <h4 className="font-bold text-sm mb-1.5"
+                        style={{ color: (aktif || tamamlandi) ? '#0F172A' : '#94A3B8' }}>
+                        {title}
+                      </h4>
+                      <p className="text-xs leading-relaxed max-w-[160px] mx-auto"
+                        style={{ color: (aktif || tamamlandi) ? '#64748B' : '#CBD5E1' }}>
+                        {desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Dot indicators */}
+            <div className="flex justify-center gap-2">
+              {hikayeSteps.map((s, i) => (
+                <button
+                  key={s.num}
+                  onClick={() => setAktifAdim(i)}
+                  aria-label={`Adım ${i + 1}`}
+                  className="h-2 rounded-full transition-all duration-300"
+                  style={{
+                    width: i === aktifAdim ? 24 : 8,
+                    background: i === aktifAdim ? (s.past ? '#C9A96A' : '#3B82F6') : '#CBD5E1',
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Peyk() {
   const [form, setForm] = useState({ firmaAdi: '', calisanSayisi: '', telefon: '', eposta: '', aciklama: '', alanlar: [] });
   const toggle = (a) => setForm(p => ({ ...p, alanlar: p.alanlar.includes(a) ? p.alanlar.filter(x => x !== a) : [...p.alanlar, a] }));
@@ -545,7 +753,10 @@ export default function Peyk() {
 
         </div>
       </section>
-
+      {/* ══════════════════════════════════════════
+          PEYK HİKAYESİ – Dünden Bugüne
+      ══════════════════════════════════════════ */}
+      <PeykHikayesi />
       {/* ══════════════════════════════════════════
           NEDEN PEYK – Bento grid (tasarıma birebir)
           Satır 1: kart0(4) kart1(3) kart2(3)
@@ -621,6 +832,8 @@ export default function Peyk() {
 
         </div>
       </section>
+
+
 
       {/* ══════════════════════════════════════════
           ULUSLARARASI BAŞARI – sol beyaz, sağ koyu

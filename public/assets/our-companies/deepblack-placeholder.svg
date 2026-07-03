@@ -1,0 +1,10 @@
+<svg width="740" height="1000" viewBox="0 0 740 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="740" height="1000" fill="#ffffff"/>
+  <!-- Crescent "D" -->
+  <path d="M300 210 A250 250 0 1 1 300 790 A310 310 0 0 0 300 210 Z" fill="#141a2e"/>
+  <!-- Four-pointed sparkle star -->
+  <path d="M282 300 C288 372 300 384 372 400 C300 416 288 428 282 500 C276 428 264 416 192 400 C264 384 276 372 282 300 Z" fill="#141a2e"/>
+  <!-- Wordmark -->
+  <text x="370" y="730" font-family="'Segoe UI', Arial, sans-serif" font-size="120" font-weight="600" fill="#141a2e" text-anchor="middle">DeepBlack</text>
+  <text x="370" y="800" font-family="'Segoe UI', Arial, sans-serif" font-size="42" font-weight="400" letter-spacing="14" fill="#141a2e" text-anchor="middle">AI SOLUTIONS</text>
+</svg>
