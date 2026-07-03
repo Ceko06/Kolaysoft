@@ -40,6 +40,12 @@ import SuccessStories from './pages/corporate/SuccessStories';
 import Cozumler from './pages/Cozumler';
 import DeepBlack from './pages/cozumler/DeepBlack';
 import KirmiziKurumsal from './pages/cozumler/KirmiziKurumsal';
+import KvkkLayout from './components/layout/KvkkLayout';
+import CerezAydinlatma from './pages/kvkk/CerezAydinlatma';
+import GizlilikPolitikasi from './pages/kvkk/GizlilikPolitikasi';
+import BayiBasvuru from './pages/kvkk/BayiBasvuru';
+import IletisimFormu from './pages/kvkk/IletisimFormu';
+import IsStajBasvurusu from './pages/kvkk/IsStajBasvurusu';
 
 function HomePage() {
   return (
@@ -75,6 +81,14 @@ export default function App() {
               <Route path="teknoloji" element={<Technology />} />
               <Route path="faaliyetler" element={<Activities />} />
               <Route path="basarilarimiz" element={<SuccessStories />} />
+            </Route>
+            <Route path="/kurumsal/kvkk" element={<KvkkLayout />}>
+              <Route index element={<CerezAydinlatma />} />
+              <Route path="cerez-aydinlatma-metni" element={<CerezAydinlatma />} />
+              <Route path="gizlilik-politikasi" element={<GizlilikPolitikasi />} />
+              <Route path="bayi-basvuru-aydinlatma-metni" element={<BayiBasvuru />} />
+              <Route path="iletisim-formu-aydinlatma-metni" element={<IletisimFormu />} />
+              <Route path="is-staj-basvurusu-aydinlatma-metni" element={<IsStajBasvurusu />} />
             </Route>
             <Route path="/sirketler" element={<Companies />} />
             <Route path="/is-ortaklarimiz" element={<Partners />} />

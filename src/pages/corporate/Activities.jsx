@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import eczacilik from '../../assets/activities/eczacilik.png'
 import optik from '../../assets/activities/optik.png'
@@ -14,21 +15,25 @@ const sectors = [
     title: 'Optik ve Görme Teknolojileri',
     desc: 'Optik sektörüne özel satış, stok, ödeme ve reçete süreçlerini tek platformda yöneten çözümler sunuyoruz.',
     img: optik,
+    link: '/cozumler/optik-teknolojileri',
   },
   {
     title: 'Finansal Teknolojiler ve Ödeme Sistemleri',
     desc: 'Yeni nesil ödeme altyapıları ve mobil POS teknolojileriyle hızlı ve güvenli tahsilat deneyimleri sağlıyoruz.',
     img: finans,
+    link: '/cozumler/kolaysoft-pos',
   },
   {
     title: 'Kurumsal e-Dönüşüm Sistemleri',
     desc: 'Şirketlerin yüksek hacimli dijital belge ve entegrasyon süreçlerini güvenli altyapılarla yönetiyoruz.',
     img: kurumsal,
+    link: '/cozumler/e-donusum',
   },
   {
     title: 'İnsan Kaynakları ve Dijital Belge Yönetimi',
     desc: 'İK operasyonlarını dijitalleştiren yasal uyumlu belge ve çalışan süreçleri geliştiriyoruz.',
     img: ik,
+    link: '/cozumler/peyk',
   },
   {
     title: 'Saha Operasyon ve Servis Teknolojileri',
@@ -39,16 +44,19 @@ const sectors = [
     title: 'Sağlık ve Eczacılık Teknolojileri',
     desc: 'Eczanelerin ödeme, finans, e-belge ve operasyon süreçlerini dijitalleştiren entegre teknolojiler geliştiriyoruz.',
     img: eczacilik,
+    link: '/cozumler/eczane-teknolojileri',
   },
   {
     title: 'Büyük Ölçekli Dijital Dönüşüm Projeleri',
     desc: 'Enerji, şehircilik ve kamu operasyonlarına yönelik yüksek ölçekli teknoloji projeleri geliştiriyoruz.',
     img: kamu,
+    link: '/cozumler/e-donusum',
   },
   {
     title: 'Perakende ve Müşteri Deneyimi Teknolojileri',
     desc: 'Müşteri deneyimini güçlendiren, sadakat ve kampanya süreçlerini dijitalleştiren teknoloji çözümleri geliştiriyoruz.',
     img: perakende,
+    link: '/cozumler/kirmizi-kurumsal',
   },
 ];
 
@@ -62,7 +70,7 @@ export default function Activities() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-       
+
         <h1
           className="font-display font-800 text-slate-900 leading-tight mb-3"
           style={{ fontSize: 'clamp(2rem, 4vw, 3rem)' }}
@@ -79,7 +87,7 @@ export default function Activities() {
 
       {/* Sektör Listesi */}
       <div className="space-y-16">
-        {sectors.map(({ title, desc, img }, i) => {
+        {sectors.map(({ title, desc, img, link }, i) => {
           const isEven = i % 2 === 0;
           return (
             <motion.div
@@ -92,15 +100,12 @@ export default function Activities() {
             >
               {/* Fotoğraf */}
               <div className="md:w-1/2 relative mt-6 md:mt-[120px]">
-                {/* Mavi kare: yarısı dışarıda, yarısı fotoğrafın arkasında */}
-
                 <div className="relative z-10 h-72 md:h-80 overflow-hidden">
                   <img
                     src={img}
                     alt={title}
                     className="w-full h-full object-cover transition-transform duration-700 "
                   />
-                  
                 </div>
               </div>
 
@@ -114,13 +119,15 @@ export default function Activities() {
                     {title}
                   </h2>
                   <p className="text-slate-500 leading-relaxed text-sm mb-6">{desc}</p>
-                  <a
-                    href="#"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#184a97] text-white text-sm font-semibold rounded-lg hover:bg-[#184a97]/80 transition-all duration-200 group/btn"
-                  >
-                    Detaylı İncele
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                  </a>
+                  {link && (
+                    <Link
+                      to={link}
+                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#184a97] text-white text-sm font-semibold rounded-lg hover:bg-[#184a97]/80 transition-all duration-200 group/btn"
+                    >
+                      Detaylı İncele
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                    </Link>
+                  )}
                 </div>
               </div>
             </motion.div>

@@ -5,6 +5,7 @@ import {
   FileText, BookOpen, Archive, Truck, CheckSquare, Shield,
   ShoppingCart, Heart, Building2, Factory, Zap, Globe,
   ChevronDown, Menu, X, Paperclip, ArrowRight, Phone, Target, Users, Award, Rocket, Cpu, Send, FlaskConical, Eye,
+  Cookie, Lock, Store, Mail, Briefcase, Ear, Stethoscope,
 } from 'lucide-react';
 
 const megaMenuData = {
@@ -21,6 +22,13 @@ const megaMenuData = {
       { icon: Cpu, label: 'Teknoloji', desc: 'Güçlü teknoloji altyapımız' },
       { icon: Send, label: 'Faaliyetler', desc: 'Sektörler ve çözümlerimiz' },
       { icon: Award, label: 'Başarılarımız', desc: 'Müşteri başarı hikayeleri ve ödüller' },
+      { icon: Shield, label: 'KVKK', desc: 'Kişisel verilerin korunması metinleri', children: [
+        { icon: Cookie, label: 'KVKK Çerez Aydınlatma Metni', desc: 'Çerez kullanımı hakkında' },
+        { icon: Lock, label: 'Gizlilik Politikası', desc: 'Gizlilik ve güvenlik politikası' },
+        { icon: Store, label: 'Bayi Başvuru KVKK Aydınlatma Metni', desc: 'Bayi başvuruları' },
+        { icon: Mail, label: 'KVKK İletişim Formu Aydınlatma Metni', desc: 'İletişim formu' },
+        { icon: Briefcase, label: 'İş ve Staj Başvurusu Aydınlatma Metni', desc: 'İş ve staj başvuruları' },
+      ] },
     ],
   },
   Çözümler: {
@@ -33,6 +41,8 @@ const megaMenuData = {
       { icon: Heart, label: 'KolayCare', desc: 'Sağlık sektörüne özel çözümler.', children: [
         { icon: FlaskConical, label: 'Eczane Teknolojileri', desc: 'Eczaneler için dijital çözümler' },
         { icon: Eye, label: 'Optik Teknolojileri', desc: 'Optik sektörüne özel çözümler' },
+        { icon: Ear, label: 'İşitme Teknolojileri', desc: 'İşitme merkezleri için dijital çözümler', href: 'https://isitmemerkezi.kolaysoft.com.tr/accounting/login' },
+        { icon: Stethoscope, label: 'Medikal Teknolojileri', desc: 'Medikal sektörüne özel çözümler', href: 'https://medikal.kolaysoft.com.tr/accounting/' },
       ] },
       { icon: BookOpen, label: 'e-Dönüşüm', desc: 'Güvenli dijal belge ve ödeme' },
       { icon: Paperclip, label: 'Peyk', desc: 'İK operasyonlarını dijitalleştirme' },
@@ -68,6 +78,17 @@ const megaMenuData = {
 };
 
 const navLinks = ['Kurumsal', 'Çözümler', 'Faaliyetler', 'Referanslar', 'Medya Merkezi', 'Kolaysoft Kariyer', 'İletişim'];
+
+const childHrefMap = {
+  'Eczane Teknolojileri': '/cozumler/eczane-teknolojileri',
+  'Optik Teknolojileri': '/cozumler/optik-teknolojileri',
+  'KVKK Çerez Aydınlatma Metni': '/kurumsal/kvkk/cerez-aydinlatma-metni',
+  'Gizlilik Politikası': '/kurumsal/kvkk/gizlilik-politikasi',
+  'Bayi Başvuru KVKK Aydınlatma Metni': '/kurumsal/kvkk/bayi-basvuru-aydinlatma-metni',
+  'KVKK İletişim Formu Aydınlatma Metni': '/kurumsal/kvkk/iletisim-formu-aydinlatma-metni',
+  'İş ve Staj Başvurusu Aydınlatma Metni': '/kurumsal/kvkk/is-staj-basvurusu-aydinlatma-metni',
+};
+const resolveChildHref = (l) => childHrefMap[l] || '#';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -254,9 +275,9 @@ export default function Navbar() {
                       </div>
                       {megaMenuData[activeMenu].items.map(({ icon: Icon, label, desc, children }) => {
                         const href = activeMenu === 'Kurumsal'
-                           ? `/kurumsal/${label === 'Biz Kimiz' ? 'biz-kimiz' : label === 'Hikayemiz' ? 'hikayemiz' : label === 'Vizyon & Misyon' ? 'vizyon-misyon' : label === 'Değerlerimiz' ? 'degerlerimiz' : label === 'Faaliyetler' ? 'faaliyetler' : label === 'Başarılarımız' ? 'basarilarimiz' : 'teknoloji'}`
+                           ? `/kurumsal/${label === 'Biz Kimiz' ? 'biz-kimiz' : label === 'Hikayemiz' ? 'hikayemiz' : label === 'Vizyon & Misyon' ? 'vizyon-misyon' : label === 'Değerlerimiz' ? 'degerlerimiz' : label === 'Faaliyetler' ? 'faaliyetler' : label === 'Başarılarımız' ? 'basarilarimiz' : label === 'KVKK' ? 'kvkk' : 'teknoloji'}`
                            : label === 'Şirketler' ? '/sirketler' : label === 'İş Ortaklarımız' ? '/is-ortaklarimiz' : label === 'Çalışma Hayatı' ? '/kariyer' : label === 'Ekibimize Katılın' ? '/kolaysoft-kariyer' : label === 'Peyk' ? '/cozumler/peyk' : label === 'e-Dönüşüm' ? '/cozumler/e-donusum' : label === 'KolayCare' ? '/cozumler/kolay-care' : label === 'KolaysoftPOS' ? '/cozumler/kolaysoft-pos' : label === 'Eczane Teknolojileri' ? '/cozumler/eczane-teknolojileri' : label === 'Optik Teknolojileri' ? '/cozumler/optik-teknolojileri' : label === 'DeepBlack' ? '/cozumler/deepblack' : label === 'Kırmızı Kurumsal' ? '/cozumler/kirmizi-kurumsal' : '#';
-                        const childHref = (l) => l === 'Eczane Teknolojileri' ? '/cozumler/eczane-teknolojileri' : l === 'Optik Teknolojileri' ? '/cozumler/optik-teknolojileri' : '#';
+                        const childHref = resolveChildHref;
                         return (
                           <div
                             key={label}
@@ -287,19 +308,27 @@ export default function Navbar() {
                               transition={{ duration: 0.18, ease: [0.25, 0.46, 0.45, 0.94] }}
                               className="ml-11 mt-0.5 mb-1 flex flex-col gap-0.5 border-l border-tech-border/60 pl-3 overflow-hidden"
                             >
-                              {children.map(({ icon: CIcon, label: cLabel, desc: cDesc }) => (
-                                <Link
-                                  key={cLabel}
-                                  to={childHref(cLabel)}
-                                  className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 group/child transition-colors"
-                                >
-                                  <CIcon className="w-3.5 h-3.5 text-slate-400 group-hover/child:text-tech-cyan transition-colors mt-0.5 flex-shrink-0" />
-                                  <div>
-                                    <p className="text-[13px] font-medium text-slate-700 group-hover/child:text-tech-cyan transition-colors">{cLabel}</p>
-                                    <p className="text-[11px] text-slate-500 mt-0.5">{cDesc}</p>
-                                  </div>
-                                </Link>
-                              ))}
+                              {children.map(({ icon: CIcon, label: cLabel, desc: cDesc, href: cExternal }) => {
+                                const childInner = (
+                                  <>
+                                    <CIcon className="w-3.5 h-3.5 text-slate-400 group-hover/child:text-tech-cyan transition-colors mt-0.5 flex-shrink-0" />
+                                    <div>
+                                      <p className="text-[13px] font-medium text-slate-700 group-hover/child:text-tech-cyan transition-colors">{cLabel}</p>
+                                      <p className="text-[11px] text-slate-500 mt-0.5">{cDesc}</p>
+                                    </div>
+                                  </>
+                                );
+                                const childClass = "flex items-start gap-2.5 p-2 rounded-lg hover:bg-slate-50 group/child transition-colors";
+                                return cExternal ? (
+                                  <a key={cLabel} href={cExternal} target="_blank" rel="noopener noreferrer" className={childClass}>
+                                    {childInner}
+                                  </a>
+                                ) : (
+                                  <Link key={cLabel} to={childHref(cLabel)} className={childClass}>
+                                    {childInner}
+                                  </Link>
+                                );
+                              })}
                             </motion.div>
                           )}
                           </AnimatePresence>
@@ -437,20 +466,25 @@ export default function Navbar() {
                         className="pl-4 overflow-hidden rounded-b-xl"
                       >
                         {megaMenuData[link].items.map(({ icon: Icon, label, children }) => {
-              // synctest
   const mobileHref = link === 'Kurumsal'
-                              ? `/kurumsal/${label === 'Biz Kimiz' ? 'biz-kimiz' : label === 'Hikayemiz' ? 'hikayemiz' : label === 'Vizyon & Misyon' ? 'vizyon-misyon' : label === 'Değerlerimiz' ? 'degerlerimiz' : label === 'Faaliyetler' ? 'faaliyetler' : label === 'Başarılarımız' ? 'basarilarimiz' : 'teknoloji'}`
+                              ? `/kurumsal/${label === 'Biz Kimiz' ? 'biz-kimiz' : label === 'Hikayemiz' ? 'hikayemiz' : label === 'Vizyon & Misyon' ? 'vizyon-misyon' : label === 'Değerlerimiz' ? 'degerlerimiz' : label === 'Faaliyetler' ? 'faaliyetler' : label === 'Başarılarımız' ? 'basarilarimiz' : label === 'KVKK' ? 'kvkk' : 'teknoloji'}`
                               : label === 'Şirketler' ? '/sirketler' : label === 'İş Ortaklarımız' ? '/is-ortaklarimiz' : label === 'Çalışma Hayatı' ? '/kariyer' : label === 'Ekibimize Katılın' ? '/kolaysoft-kariyer' : label === 'Peyk' ? '/cozumler/peyk' : label === 'e-Dönüşüm' ? '/cozumler/e-donusum' : label === 'KolayCare' ? '/cozumler/kolay-care' : label === 'KolaysoftPOS' ? '/cozumler/kolaysoft-pos' : label === 'Eczane Teknolojileri' ? '/cozumler/eczane-teknolojileri' : label === 'Optik Teknolojileri' ? '/cozumler/optik-teknolojileri' : label === 'DeepBlack' ? '/cozumler/deepblack' : label === 'Kırmızı Kurumsal' ? '/cozumler/kirmizi-kurumsal' : '#';
-                            const childHref = (l) => l === 'Eczane Teknolojileri' ? '/cozumler/eczane-teknolojileri' : l === 'Optik Teknolojileri' ? '/cozumler/optik-teknolojileri' : '#';
+                            const childHref = resolveChildHref;
                             return (
                               <div key={label}>
                               <Link to={mobileHref} className="flex items-center gap-3 px-4 py-2.5 text-sm text-slate-600 hover:text-tech-cyan hover:bg-slate-50 transition-colors">
                                 <Icon className="w-4 h-4" /> {label}
                               </Link>
-                              {children && children.map(({ icon: CIcon, label: cLabel }) => (
-                                <Link key={cLabel} to={childHref(cLabel)} className="flex items-center gap-3 pl-11 pr-4 py-2 text-[13px] text-slate-500 hover:text-tech-cyan hover:bg-slate-50 transition-colors">
-                                  <CIcon className="w-3.5 h-3.5" /> {cLabel}
-                                </Link>
+                              {children && children.map(({ icon: CIcon, label: cLabel, href: cExternal }) => (
+                                cExternal ? (
+                                  <a key={cLabel} href={cExternal} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 pl-11 pr-4 py-2 text-[13px] text-slate-500 hover:text-tech-cyan hover:bg-slate-50 transition-colors">
+                                    <CIcon className="w-3.5 h-3.5" /> {cLabel}
+                                  </a>
+                                ) : (
+                                  <Link key={cLabel} to={childHref(cLabel)} className="flex items-center gap-3 pl-11 pr-4 py-2 text-[13px] text-slate-500 hover:text-tech-cyan hover:bg-slate-50 transition-colors">
+                                    <CIcon className="w-3.5 h-3.5" /> {cLabel}
+                                  </Link>
+                                )
                               ))}
                               </div>
                             );

@@ -30,6 +30,13 @@ const footerLinks = {
     { label: 'Deep Black', to: '#' },
     { label: 'e-DÖNÜŞÜM', to: '#' },
   ],
+  'KVKK': [
+    { label: 'KVKK Çerez Aydınlatma Metni', to: '/kurumsal/kvkk/cerez-aydinlatma-metni' },
+    { label: 'Gizlilik Politikası', to: '/kurumsal/kvkk/gizlilik-politikasi' },
+    { label: 'Bayi Başvuru KVKK Aydınlatma Metni', to: '/kurumsal/kvkk/bayi-basvuru-aydinlatma-metni' },
+    { label: 'KVKK İletişim Formu Aydınlatma Metni', to: '/kurumsal/kvkk/iletisim-formu-aydinlatma-metni' },
+    { label: 'İş ve Staj Başvurusu Aydınlatma Metni', to: '/kurumsal/kvkk/is-staj-basvurusu-aydinlatma-metni' },
+  ],
 };
 
 const socials = [
@@ -50,9 +57,9 @@ export default function Footer() {
         className="absolute left-[-7rem] top-1/3 -translate-y-1/2 w-72 h-72 object-contain opacity-[0.20] pointer-events-none select-none"
       />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-tech-cyan/30 to-transparent" />
-      
+
       <div className="container-wide py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-slate-200 justify-items-center">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 pb-10 border-b border-slate-200">
           <div className="flex flex-col items-start text-left">
             <img src={logo} alt="Kolaysoft" className="h-12 w-auto mb-5" />
             <p className="text-sm text-slate-600 leading-relaxed mb-6">
@@ -82,7 +89,7 @@ export default function Footer() {
           </div>
 
           {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category} className="flex flex-col items-center text-left">
+            <div key={category} className="flex flex-col items-start text-left">
               <p className="text-xs font-semibold uppercase tracking-wider text-tech-cyan mb-4 flex items-center gap-2">
                 <Sparkles className="w-3 h-3" /> {category}
               </p>

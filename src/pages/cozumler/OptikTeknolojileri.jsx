@@ -526,7 +526,7 @@ function VideoCard() {
   const [playing, setPlaying] = useState(false);
   const ytId = 'BL40YIbZNo4'; // gerçek video ID ile değiştirin
   const embedUrl = `https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0`;
-  const thumbnail = `https://img.youtube.com/vi/${ytId}/maxresdefault.jpg`;
+  const thumbnail = '/assets/optik-teknolojileri/thumbnail.png';
   const fallback  = `https://img.youtube.com/vi/${ytId}/hqdefault.jpg`;
 
   return (

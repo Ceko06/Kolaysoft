@@ -152,6 +152,20 @@ const technologies = [
     img: '/assets/kolaycare/optik.png',
     href: '/cozumler/optik-teknolojileri',
   },
+  {
+    title: 'İşitme Teknolojileri',
+    desc: 'İşitme merkezlerinin satış, ödeme, cihaz ve hasta takip süreçlerini dijitalleştiren, operasyonlarını tek platformda yönetmelerini sağlayan çözümler sunuyoruz.',
+    img: '/assets/kolaycare/isitme.jpg',
+    href: 'https://isitmemerkezi.kolaysoft.com.tr/accounting/login',
+    external: true,
+  },
+  {
+    title: 'Medikal Teknolojileri',
+    desc: 'Medikal işletmelerin satış, ödeme, stok ve fatura süreçlerini kolaylaştıran, sektöre özel dijital dönüşüm teknolojileri geliştiriyoruz.',
+    img: '/assets/kolaycare/medikal.jpg',
+    href: 'https://medikal.kolaysoft.com.tr/accounting/',
+    external: true,
+  },
 ];
 
 
@@ -535,7 +549,7 @@ export default function KolayCare() {
 
           {/* Kartlar — metin sol, görsel sağ */}
           <div className="grid md:grid-cols-2 gap-6 bg-[#F7F9FF]">
-            {technologies.map(({ title, desc, img, href }, i) => (
+            {technologies.map(({ title, desc, img, href, external }, i) => (
               <motion.div
                 key={title}
                 variants={fadeUp} initial="hidden" whileInView="visible" custom={i * 0.15}
@@ -550,6 +564,7 @@ export default function KolayCare() {
                   </div>
                   <a
                     href={href}
+                    {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border-2 border-[#184A97] text-[#184A97] font-semibold text-sm hover:bg-[#184A97] hover:text-white transition-all duration-200 w-fit mt-6"
                   >
                     Ürünleri Keşfet <ChevronRight className="w-4 h-4" />
